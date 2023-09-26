@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mashTicket.TicketManagement.Application.Features.Events
+namespace mashTicket.TicketManagement.Application.Features.Events.Queries.GetEventsList
 {
-    public class GetEventsListQuary: IRequest<List<EventListVm>>
+    public class GetEventsListQuary : IRequest<List<EventListVm>>
     {
     }
 }

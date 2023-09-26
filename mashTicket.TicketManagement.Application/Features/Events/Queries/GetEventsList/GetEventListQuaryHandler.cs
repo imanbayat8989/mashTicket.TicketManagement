@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mashTicket.TicketManagement.Application.Features.Events
+namespace mashTicket.TicketManagement.Application.Features.Events.Queries.GetEventsList
 {
     public class GetEventListQuaryHandler : IRequestHandler<GetEventsListQuary, List<EventListVm>>
     {
+
         private readonly IAsyncRepository<Event> _eventRepository;
         private readonly IMapper _mapper;
 

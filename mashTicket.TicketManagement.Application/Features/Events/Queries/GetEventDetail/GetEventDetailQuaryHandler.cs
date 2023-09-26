@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mashTicket.TicketManagement.Application.Features.Events
+namespace mashTicket.TicketManagement.Application.Features.Events.Queries.GetEventDetail
 {
-    public class GetEventDetailQuaryHandler: IRequestHandler<GetEventDetailQuary, EventDetailVm>
+    public class GetEventDetailQuaryHandler : IRequestHandler<GetEventDetailQuary, EventDetailVm>
     {
         private readonly IAsyncRepository<Event> _eventRepository;
         private readonly IAsyncRepository<Category> _categoryRepository;
