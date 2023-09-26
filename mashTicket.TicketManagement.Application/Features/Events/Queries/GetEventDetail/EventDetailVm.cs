@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using mashTicket.TicketManagement.Application.Features.Events.Queries.GetEventDetail;
 
 namespace mashTicket.TicketManagement.Application.Features.Events
 {

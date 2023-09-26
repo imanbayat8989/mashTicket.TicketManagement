@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using mashTicket.TicketManagement.Application.Features.Events;
+using mashTicket.TicketManagement.Application.Features.Events.Queries.GetEventDetail;
+using mashTicket.TicketManagement.Application.Features.Events.Queries.GetEventsList;
 using mashTicket.TicketManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;

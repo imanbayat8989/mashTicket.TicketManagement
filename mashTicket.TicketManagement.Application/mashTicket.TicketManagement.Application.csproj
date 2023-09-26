@@ -16,4 +16,8 @@
     <ProjectReference Include="..\mashTicket.TicketManagement.Domain\mashTicket.TicketManagement.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Events\Commands\CreateEvent\" />
+  </ItemGroup>
+
 </Project>
