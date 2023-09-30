@@ -24,9 +24,9 @@ namespace mashTicket.TicketManagementPersistence
             modelBuilder.ApplyConfigurationsFromAssembly(typeof (mashTicketDbContext).Assembly);
 
             var concertGuid = Guid.Parse("{B0788D2F-8003-43C1-92A4-EDC76A7C5DDE}");
-            var musicalGuid = Guid.Parse("{6313179F-7837-473A-A4D5-A5571B43E6A6");
-            var playGuid = Guid.Parse("{BF3F3002-7E53-441E-8B76-F6282BE284AA");
-            var conferenceGuid = Guid.Parse("{FE98F549-3790-4E9F-AA16-18C2292A2EE9");
+            var musicalGuid = Guid.Parse("{6313179F-7837-473A-A4D5-A5571B43E6A6}");
+            var playGuid = Guid.Parse("{BF3F3002-7E53-441E-8B76-F6282BE284AA}");
+            var conferenceGuid = Guid.Parse("{FE98F549-3790-4E9F-AA16-18C2292A2EE9}");
 
             modelBuilder.Entity<Category>().HasData(new Category
             {
@@ -51,7 +51,7 @@ namespace mashTicket.TicketManagementPersistence
 
             modelBuilder.Entity<Event>().HasData(new Event
             {
-                EventId = Guid.Parse("{EE272F8B-6096-4CB6-8625-BB4BB2D89E8B"),
+                EventId = Guid.Parse("{EE272F8B-6096-4CB6-8625-BB4BB2D89E8B}"),
                 Name = "Bahram Live",
                 Price = 65,
                 Artist = "Bahram",
@@ -63,7 +63,7 @@ namespace mashTicket.TicketManagementPersistence
 
             modelBuilder.Entity<Event>().HasData(new Event
             {
-                EventId = Guid.Parse("{3448D5A4-0F72-4DD7-BF15-C14A46B26C00"),
+                EventId = Guid.Parse("{3448D5A4-0F72-4DD7-BF15-C14A46B26C00}"),
                 Name = "Hichkas",
                 Price = 85,
                 Artist = "Hichkas[Sourosh Lashkari]",
