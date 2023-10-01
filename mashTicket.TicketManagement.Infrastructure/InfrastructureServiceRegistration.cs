@@ -1,5 +1,6 @@
 ﻿using mashTicket.TicketManagement.Application.Contracts.Infrastructure;
 using mashTicket.TicketManagement.Application.Models.Mail;
+using mashTicket.TicketManagement.Infrastructure.FileExport;
 using mashTicket.TicketManagement.Infrastructure.Mail;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,8 @@ namespace mashTicket.TicketManagement.Infrastructure
             IConfiguration configuration)
         {
             services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
+
+            services.AddTransient<ICsvExporter, CsvExporter>();
 
             services.AddTransient<IEmailService, EmailService>();
 

@@ -1,7 +1,9 @@
-﻿using mashTicket.TicketManagement.Application.Features.Events.Commands.CreateEvent;
+﻿using mash.Ticket.TicketManagement.API.Utility;
+using mashTicket.TicketManagement.Application.Features.Events.Commands.CreateEvent;
 using mashTicket.TicketManagement.Application.Features.Events.Commands.DeleteEvent;
 using mashTicket.TicketManagement.Application.Features.Events.Commands.UpdateEvent;
 using mashTicket.TicketManagement.Application.Features.Events.Queries.GetEventDetail;
+using mashTicket.TicketManagement.Application.Features.Events.Queries.GetEventsExport;
 using mashTicket.TicketManagement.Application.Features.Events.Queries.GetEventsList;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -18,6 +20,7 @@ namespace mash.Ticket.TicketManagement.API.Controller
         {
             _mediator = mediator;
         }
+
         [HttpGet(Name = "GetAllEvents")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
@@ -26,6 +29,7 @@ namespace mash.Ticket.TicketManagement.API.Controller
             var result = await _mediator.Send(new GetEventsListQuary());
             return Ok(result);
         }
+
         [HttpGet("{id}", Name = "GetEventById")]
         public async Task<ActionResult<EventDetailVm>> GetEventById(Guid id)
         {
@@ -59,6 +63,15 @@ namespace mash.Ticket.TicketManagement.API.Controller
             var deleteEventCommand = new DeleteEventCommand() { EventId = id };
             await _mediator.Send(deleteEventCommand);
             return NoContent();
+        }
+
+        [HttpGet("export", Name = "ExportEvents")]
+        [FileResultContentType("text/csv")]
+        public async Task<FileResult> ExportEvents()
+        {
+            var fileDto = await _mediator.Send(new GetEventsExportQuery());
+
+            return File(fileDto.Data, fileDto.ContentType, fileDto.EventExportFileName);
         }
     }
 }

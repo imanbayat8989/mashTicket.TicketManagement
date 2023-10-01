@@ -11,7 +11,7 @@ namespace mash.Ticket.TicketManagement.API.Controller
         private readonly IMediator _mediator;
         public OrderController(IMediator mediator)
         {
-            _mediator = mediator;
+            _mediator = mediator; 
         }
     }
 }
