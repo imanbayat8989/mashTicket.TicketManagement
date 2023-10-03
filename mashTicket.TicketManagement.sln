@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mashTicket.TicketManagement
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mashTicket.TicketManagement.Persistence.IntegrationTests", "mashTicket.TicketManagement.Persistence.IntegrationTests\mashTicket.TicketManagement.Persistence.IntegrationTests.csproj", "{6323EDDD-3AFD-4DE2-B72F-28A0AB99849C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mashTicket.TicketManagement.API.IntegrationTests", "mashTicket.TicketManagement.API.IntegrationTests\mashTicket.TicketManagement.API.IntegrationTests.csproj", "{994703E7-7FC5-4392-AE5C-667EABC0764E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{6323EDDD-3AFD-4DE2-B72F-28A0AB99849C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6323EDDD-3AFD-4DE2-B72F-28A0AB99849C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6323EDDD-3AFD-4DE2-B72F-28A0AB99849C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{994703E7-7FC5-4392-AE5C-667EABC0764E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{994703E7-7FC5-4392-AE5C-667EABC0764E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{994703E7-7FC5-4392-AE5C-667EABC0764E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{994703E7-7FC5-4392-AE5C-667EABC0764E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{253941EA-7AD9-46DE-8D6A-34CE4E0AE09D} = {EFD09907-9A06-45F5-A9BB-6D6DB1446176}
 		{4AC7F3FA-74C5-4DBA-83E1-EF0FDF3F9EC3} = {17ABC6D7-3C27-4E83-BD47-2C75C4D71DDA}
 		{6323EDDD-3AFD-4DE2-B72F-28A0AB99849C} = {17ABC6D7-3C27-4E83-BD47-2C75C4D71DDA}
+		{994703E7-7FC5-4392-AE5C-667EABC0764E} = {17ABC6D7-3C27-4E83-BD47-2C75C4D71DDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {472ED502-A31D-4B9D-8164-AFE4E18690B6}
