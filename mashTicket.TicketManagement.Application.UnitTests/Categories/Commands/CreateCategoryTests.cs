@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
 using mashTicket.TicketManagement.Application.Contracts.Persistence;
-using mashTicket.TicketManagement.Application.Features.Categories.Queries.GetCategoriesList;
+using mashTicket.TicketManagement.Application.Features.Categories.Commands.CreateCategory;
 using mashTicket.TicketManagement.Application.Features.Profiles;
 using mashTicket.TicketManagement.Application.UnitTests.Mocks;
 using mashTicket.TicketManagement.Domain.Entities;
-using MediatR;
 using Moq;
 using Shouldly;
 using System;
@@ -14,34 +13,33 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace mashTicket.TicketManagement.Application.UnitTests.Categories.Queries
+namespace mashTicket.TicketManagement.Application.UnitTests.Categories.Commands
 {
-    public class GetCategoriesListQueryHandlerTests 
+    public class CreateCategoryTests
     {
         private readonly IMapper _mapper;
         private readonly Mock<IAsyncRepository<Category>> _mockCategoryRepository;
 
-        public GetCategoriesListQueryHandlerTests()
+        public CreateCategoryTests()
         {
             _mockCategoryRepository = RepositoriesMocks.GetCategoryRepository();
-            var configurationProvider = new MapperConfiguration(ctg =>
+            var configurationProvider = new MapperConfiguration(cfg =>
             {
-                ctg.AddProfile<MappingProfile>();
+                cfg.AddProfile<MappingProfile>();
             });
 
             _mapper = configurationProvider.CreateMapper();
         }
 
         [Fact]
-        public async Task GetCategoriesListTests()
+        public async Task Handle_ValidCategory_AddedToCategoriesRepo()
         {
-            var handler = new GetCategoriesListQueryHandler(_mapper, _mockCategoryRepository.Object);
+            var handler = new CreateCategoryCommandHandler(_mapper, _mockCategoryRepository.Object);
 
-            var result = await handler.Handle(new GetCategoriesListQuery(), CancellationToken.None);
+            await handler.Handle(new CreateCategoryCommand() { Name = "Test" }, CancellationToken.None);
 
-            result.ShouldBeOfType<List<CategoryListVm>>();
-
-            result.Count.ShouldBe(4);
+            var allCategories = await _mockCategoryRepository.Object.ListAllAsync();
+            allCategories.Count.ShouldBe(5);
         }
     }
 }

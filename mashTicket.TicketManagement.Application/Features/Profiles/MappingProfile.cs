@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using mashTicket.TicketManagement.Application.Features.Categories.Commands.CreateCategory;
 using mashTicket.TicketManagement.Application.Features.Categories.Queries.GetCategoriesList;
 using mashTicket.TicketManagement.Application.Features.Categories.Queries.GetCategoriesListWithEvents;
 using mashTicket.TicketManagement.Application.Features.Events.Commands.CreateEvent;
@@ -25,9 +26,11 @@ namespace mashTicket.TicketManagement.Application.Features.Profiles
             CreateMap<Category, CategoryListVm>();
             CreateMap<Category, CategoryEventListVm>();
 
-            CreateMap<Event, CreateEventCommand>().ReverseMap();
-            CreateMap<Event, UpdateEventCommand>().ReverseMap();
-            CreateMap<Event, DeleteEventCommand>().ReverseMap();
+            CreateMap<Category, CategoryDto>();
+            CreateMap<Category, CategoryListVm>();
+            CreateMap<Category, CategoryEventListVm>();
+            CreateMap<Category, CreateCategoryCommand>();
+            CreateMap<Category, CreateCategoryDto>();
         }
     }
 }
