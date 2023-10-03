@@ -1,5 +1,7 @@
-﻿using mash.Ticket.TicketManagement.API.Utility;
+﻿using mash.Ticket.TicketManagement.API.Services;
+using mash.Ticket.TicketManagement.API.Utility;
 using mashTicket.TicketManagement.Application;
+using mashTicket.TicketManagement.Application.Contracts;
 using mashTicket.TicketManagement.Infrastructure;
 using mashTicket.TicketManagementPersistence;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +18,9 @@ namespace mash.Ticket.TicketManagement.API
             builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructureServices(builder.Configuration);
             builder.Services.AddPersistenceServices(builder.Configuration);
+
+            builder.Services.AddScoped<ILoggedInUserService, LoggedInUserService>();
+            builder.Services.AddHttpContextAccessor();
 
             builder.Services.AddControllers();
 

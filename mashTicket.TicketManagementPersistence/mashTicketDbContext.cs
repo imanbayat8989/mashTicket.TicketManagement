@@ -1,4 +1,5 @@
-﻿using mashTicket.TicketManagement.Domain.Common;
+﻿using mashTicket.TicketManagement.Application.Contracts;
+using mashTicket.TicketManagement.Domain.Common;
 using mashTicket.TicketManagement.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,8 +12,15 @@ namespace mashTicket.TicketManagementPersistence
 {
     public class mashTicketDbContext : DbContext
     {
-        public mashTicketDbContext(DbContextOptions<mashTicketDbContext> options) : base(options) 
+        private readonly ILoggedInUserService? _loggedInUserService;
+
+        public mashTicketDbContext(DbContextOptions<mashTicketDbContext> options) : base(options)
+        {
+        }
+
+        public mashTicketDbContext(DbContextOptions<mashTicketDbContext> options, ILoggedInUserService loggedInUserService) : base(options) 
         { 
+            _loggedInUserService = loggedInUserService;
         }
 
         public DbSet<Event> Events { get; set; }
@@ -194,9 +202,11 @@ namespace mashTicket.TicketManagementPersistence
                 {
                     case EntityState.Added:
                         entry.Entity.CreatedDate = DateTime.Now;
+                        entry.Entity.CreatedBy = _loggedInUserService.UserId;
                         break;
                     case EntityState.Modified:
                         entry.Entity.LastModifiedDate = DateTime.Now;
+                        entry.Entity.LastModifiedBy = _loggedInUserService.UserId;
                         break;
                 }
             }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mashTicket.TicketManagement.Domain.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace mashTicket.TicketManagement.Domain.Entities
 {
-    public class Event
+    public class Event: AuditbleEntity
     {
         public Guid EventId { get; set; }
         public string Name { get; set; }
